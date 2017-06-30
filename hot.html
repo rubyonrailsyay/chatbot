@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+/*
+background-image: "http://www.vcallglobal.com/blog/wp-content/uploads/2014/09/live-chat-support-by-vcall-global.png";
+background-repeat: no-repeat;
+background-position: <right>;
+padding-<right>: <20>px;*/
+/*
+.btn span.icon {
+    background: url(imgs/icon.png) no-repeat;
+    float: left;
+    width: 10px;
+    height: 40px;
+}
+*/
+
+/*
+	.facebook-button {
+  background: "download.jpg" right bottom no-repeat;
+  padding-left: 20px;
+}
+
+*/
+#fixedbutton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+}
+#fixedchat {
+    bottom: 0px;
+    right: 0px; 
+}
+
+</style>
+</head>
+
+<body>
+<!--style=" top:50px; left:100px; width: 10%; bottom: 0; border: 0 " -->
+<iframe style=" position=top:150px; left:100px; width: 26%; bottom: 0px; border: 0 " width="350" height="430" src="https://console.api.ai/api-client/demo/embedded/f1166c75-4652-433e-bf37-087424b85ce5" id="bot" display="none" ></iframe>
+<!--
+<a href="#head"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOAZY4P973azxnd0Kkw8Ngs0ipoDEEwVsY4tZMgOdj9ZREkxIv" id="fixedbutton"></a>-->
+<!--
+<div class="btn btn_red"><span class="icon"></span><a href="#">Crimson</a><span></span></div>
+-->
+<button type="input" value="bot" onclick="showPanel1()" id="fixedbutton"><img src="data:image/png;base64,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"> </button>
+<script type="text/javascript">
+var c=0;
+  function showPanel1() {
+  	c++;
+  	if(c%2==0)
+    	{
+    		document.getElementById('bot').style.display = "block";
+    		document.getElementById('bot').style.id = "fixedbutton";
+    	}
+	else
+		document.getElementById('bot').style.display = "none";
+  }
+
+</script>
+
+</body>
+</html>
